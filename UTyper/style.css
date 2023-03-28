@@ -1,0 +1,167 @@
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+body{
+   /*background-color: rgb(11, 4, 28);*/
+   text-align: left;
+   
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: match-parent;
+    text-align: center;
+    
+}
+header{
+    margin-right: auto;
+    width: auto;
+    height: fit-content;
+    /*border: 1px solid white;*/
+}
+.parent {
+    text-align: left;
+    vertical-align: middle;
+    bottom: 0;
+    /*border: 1px solid white;*/
+}
+.title {
+    display: inline-block;
+    font-size: 100px;
+    /*color: rgb(255, 221, 0);*/
+    height:fit-content;
+    vertical-align: middle;
+    margin: 0 auto;
+    /*border: 1px solid white;*/
+}
+.keyboardIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:60px;
+    width: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+    
+}
+.settingsIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:40px;
+    width: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+    
+}
+.targetIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:60px;
+    width: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+    
+}
+.accountIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:50px;
+    width: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    margin-left: 500px;
+    /*border: 1px solid white;*/
+    
+}
+.lettersButton{
+    vertical-align: middle;
+    display: inline-block;
+    font-size:40px;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    object-fit: contain;
+    cursor: pointer;
+}
+.trackerParent{
+    /*border: 3px solid yellow;*/
+    height: 40px;
+    text-align: left;
+
+}
+.timer {
+    display: inline-block;
+    height:40px;
+    width: 66px;
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    text-align: left;
+    /*border: 1px solid white;*/
+    margin-right: 20px;
+    
+}
+.prompt{
+    height: 300px;
+    width: 1500px;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    word-wrap: break-word;
+    /*border: 1px solid white;*/
+    
+    
+}
+.testParent {
+    /*border: 1px solid white;*/
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    text-align: center;
+    bottom: 0;
+    /*background-color: rgb(60, 20, 87);*/
+}
+.child_words{
+    display: inline;
+    height: 30px;
+    /*border: 1px solid white;*/
+    font-size: 30px;
+}
+.child_count{
+    display: inline;
+    margin-left: 20px;
+    height: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+}
+.child_quote{
+    display: inline;
+    margin-left: 20px;
+    height: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+}
+
+p{
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    /*color:rgb(101, 101, 209);*/
+}
+.next{
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    cursor: pointer;
+}
