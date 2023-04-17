@@ -1,0 +1,295 @@
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+body{
+    /*background-color: rgb(11, 4, 28);*/
+    text-align: left;
+    
+ }
+ .container{
+     margin-left: auto;
+     margin-right: auto;
+     width: match-parent;
+     text-align: center;
+     
+ }
+ header{
+     margin-right: auto;
+     width: auto;
+     height: fit-content;
+     /*border: 1px solid white;*/
+ }
+ .parent {
+     text-align: left;
+     vertical-align: middle;
+     bottom: 0;
+     /*border: 1px solid white;*/
+ }
+ .title {
+     display: inline-block;
+     font-size: 100px;
+     /*color: rgb(255, 221, 0);*/
+     height:fit-content;
+     vertical-align: middle;
+     margin: 0 auto;
+     /*border: 1px solid white;*/
+ }
+ .keyboardIcon{
+     vertical-align: middle;
+     display: inline-block;
+     height:60px;
+     width: 100px;
+     margin-top: auto;
+     margin-bottom: auto;
+     object-fit: contain;
+     cursor: pointer;
+     /*border: 1px solid white;*/
+     
+ }
+ .settingsIcon{
+     vertical-align: middle;
+     display: inline-block;
+     height:40px;
+     width: 100px;
+     margin-top: auto;
+     margin-bottom: auto;
+     object-fit: contain;
+     cursor: pointer;
+     /*border: 1px solid white;*/
+     
+ }
+ .lettersButton{
+    vertical-align: middle;
+    display: inline-block;
+    font-size:40px;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    object-fit: contain;
+    cursor: pointer;
+}
+.targetIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:60px;
+    width: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    /*border: 1px solid white;*/
+    
+}
+.accountIcon{
+    vertical-align: middle;
+    display: inline-block;
+    height:50px;
+    width: 50px;
+    margin-top: auto;
+    margin-bottom: auto;
+    object-fit: contain;
+    cursor: pointer;
+    margin-left: 500px;
+    /*border: 1px solid white;*/
+    
+}
+.saveContainer{
+    text-align: left;
+    height: 50px;
+    width: 1000px;
+    margin-top: 10px;
+    
+    
+}
+.saveButton{
+    display: inline-block;
+    text-align: center;
+    height: 40px;
+    width:fit-content;
+    font-size: 25px;
+    margin-right: 20px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+ p{
+     font-size: 40px;
+     font-family: 'Roboto Mono', monospace;
+     /*color:rgb(101, 101, 209);*/
+ }
+ button{
+     height: 50px;
+     width: 50px;
+ }
+ h1{
+     font-size: 100px;
+     /*color: rgb(255, 221, 0);*/
+     font-family: 'Roboto Mono', monospace;
+     
+ }
+ .pageTitle{
+     font-size: 65px;
+     display: inline;
+     /*color: rgb(255, 221, 0);*/
+     /*border: 1px solid white;*/
+ }
+.divPageTitle{
+    height: 70px;
+    
+} 
+.settingSection{
+    text-align: left;
+}
+.specificSetting{
+    text-align: left;
+    font-family: 'Roboto Mono', monospace;
+    margin-left: 50px;
+    font-size: 30px;
+    display: inline-block;
+    /*border: 1px solid white;*/
+}
+.nauticalBackground{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(11, 4, 28);
+    cursor: pointer;
+}
+.nauticalText{
+    font-size: 30px;
+    color: rgb(255, 221, 0);
+    cursor: pointer;
+    
+}
+
+.dimBackground{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(182, 181, 181);
+    cursor: pointer;
+    
+}
+.dimText{
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}
+.matrixBackground{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+.matrixText{
+    font-size: 30px;
+    color: rgb(21, 209, 40);
+    cursor: pointer;
+    
+}
+.rasberryRoseBackground{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(184, 51, 106);
+    cursor: pointer;
+}
+.rasberryRoseText{
+    font-size: 30px;
+    color:rgb(110, 175, 239);
+    cursor: pointer;
+    
+}
+.forestBackground{
+    height: 60px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(25,39,13);
+    cursor: pointer;
+    
+}
+.forestText{
+    font-size: 30px;
+    color: rgb(37,89,31);
+    cursor: pointer;
+}
+.percentButton{
+    /*border: 1px solid white;*/
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 317px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.wpmButton{
+    /*border: 1px solid white;*/
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 400px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.trueTypingButton{
+    /*border: 1px solid white;*/
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 268px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.noErrorButton{
+    /*border: 1px solid white;*/
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 386px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.noBackspaceButton{
+    /*border: 1px solid white;*/
+    display: inline-block;
+    height: 40px;
+    width: 100px;
+    margin-left: 337px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+    
+}
+.settingContainer{
+    /*border: 1px solid white;*/
+    text-align: left;
+    vertical-align: center;
+    height: 40px;
+    
+}
+div{
+    font-family: 'Roboto Mono', monospace;
+}
