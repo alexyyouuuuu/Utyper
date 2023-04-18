@@ -12,6 +12,7 @@
     $array = explode(",",$results);
     //echo $results;
     
+    
     $theme = $array[0];
     $wpm = $array[1];
     $percent = $array[2];
@@ -19,7 +20,22 @@
     $error = $array[4];
     $backspace = $array[5];
     
-    header("location: ../settings.php?set=".$theme.",".$wpm.",".$percent.",".$truetyping.",".$error.",".$backspace);
+    setcookie("theme", $theme, time() - (86400), "/UTyper");  
+    setcookie("wpm", $wpm, time() - (86400), "/UTyper");  
+    setcookie("percent", $percent, time() - (86400), "/UTyper");  
+    setcookie("truetyping", $truetyping, time() - (86400), "/UTyper");  
+    setcookie("error", $error, time() - (86400), "/UTyper");  
+    setcookie("backspace", $backspace, time() - (86400), "/UTyper");
+    
+    setcookie("theme", $theme, time() + (86400), "/UTyper");  
+    setcookie("wpm", $wpm, time() + (86400), "/UTyper");  
+    setcookie("percent", $percent, time() + (86400), "/UTyper");  
+    setcookie("truetyping", $truetyping, time() + (86400), "/UTyper");  
+    setcookie("error", $error, time() + (86400), "/UTyper");  
+    setcookie("backspace", $backspace, time() + (86400), "/UTyper");
+
+    //header("location: ../settings.php?set=".$theme.",".$wpm.",".$percent.",".$truetyping.",".$error.",".$backspace);
+    header("location: ../settings.php");
     exit();
 
     
