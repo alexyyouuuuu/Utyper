@@ -21,7 +21,11 @@ function next()
     clearInterval(blinker_interval);
     wpm_div.innerHTML="";
     accuracy_div.innerHTML="";
-    if(quotes)
+    if(randomWiki)
+    {
+        loadWiki();
+    }
+    else if(quotes)
     {
         loadQuote();
     }
@@ -43,6 +47,26 @@ function changeWordCount(number)
     total_word_length = number;
     quotes = false;
     next();
+}
+function changeMode(name)
+{
+    if (name === "normal")
+    {
+        if(randomWiki)
+        {
+            randomWiki = false;
+            next();
+        }
+        
+    }
+    else{
+        if(!randomWiki)
+        {
+            randomWiki = true;
+            next()
+        }
+    }
+    //alert(randomWiki);
 }
 function nextQuote()
 {   

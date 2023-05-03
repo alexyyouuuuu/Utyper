@@ -57,61 +57,6 @@ if(noBackspace === "true"){noBackspace = true}
 else{noBackspace=false}
 
 
-/*
-if (cookie_Data[0])
-{
-    localStorage.current_theme = "nautical";
-    current_theme = "nautical";
-}
-else{
-    //current_theme = cookies.substring(cookies.indexOf("current_theme")+14)
-}
-if (!localStorage.wpm)
-{
-    localStorage.wpm = "false";
-    liveWPM = false;
-}
-else{
-    if(localStorage.wpm === "true"){liveWPM = true}
-    else{liveWPM=false}
-}
-if (!localStorage.percent)
-{
-    localStorage.percent = "false";
-    livePercent = false;
-}
-else{
-    if(localStorage.percent === "true"){livePercent = true}
-    else{livePercent=false}
-}
-if (!localStorage.trueTyping)
-{
-    localStorage.trueTyping = "false";
-    trueTyping = false;
-}
-else{
-    if(localStorage.trueTyping === "true"){trueTyping = true}
-    else{trueTyping=false}
-}
-if (!localStorage.noError)
-{
-    localStorage.noError = "false";
-    noError = false;
-}
-else{
-    if(localStorage.noError === "true"){noError = true}
-    else{noError=false}
-}
-if (!localStorage.noBackspace)
-{
-    localStorage.noBackspace = "false";
-    noBackspace = false;
-}
-else{
-    if(localStorage.noBackspace === "true"){noBackspace = true}
-    else{noBackspace=false}
-}
-*/
 
 if(!localStorage.target1){localStorage.target1 = " "}
 else{ target_characters[0] = localStorage.target1}
@@ -446,6 +391,8 @@ function loadAll()
         button = document.getElementById("buttonButton");
         test_text = document.getElementById("testingText");
         next_button = document.getElementById("next");
+        normal_mode = document.getElementById("normalMode");
+        wiki_mode = document.getElementById("wikiMode");
         button_40 = document.getElementById("40");
         button_20 = document.getElementById("20");
         button_10 = document.getElementById("10");
@@ -456,6 +403,9 @@ function loadAll()
         current_page = "index";
         background_color_divs.push(document.getElementById("body"));
         background_color_divs.push(document.getElementById("prompt"));        
+        text_color_divs.push(document.getElementById("mode"));
+        text_color_divs.push(document.getElementById("normalMode"));
+        text_color_divs.push(document.getElementById("wikiMode"));
         text_color_divs.push(document.getElementById("words"));
         text_color_divs.push(document.getElementById("10"));
         text_color_divs.push(document.getElementById("20"));
@@ -471,6 +421,8 @@ function loadAll()
         window.addEventListener("click", function(event){windowClick(event)});
         prompt_div.addEventListener("click", function(event){inputClick()});
         window.addEventListener("keydown", function(event){checkKeyDown(event)});
+        normal_mode.addEventListener("click", function(){changeMode("normal")});
+        wiki_mode.addEventListener("click", function(){changeMode("wiki")});
         button_10.addEventListener("click", function(){changeWordCount(10)});
         button_20.addEventListener("click", function(){changeWordCount(20)});
         button_40.addEventListener("click", function(){changeWordCount(40)});
@@ -538,24 +490,6 @@ async function loadTarget(words)
     }
     setText();
 }
-/*
-function loadTarget2(txt, words)
-{
-    wordsArray = txt.split(/\r?\n/);
-    total_word_length = words;
-    var word_count = 0;
-    while(word_count <= total_word_length)
-    {
-        var word = wordsArray[Math.floor(Math.random()*wordsArray.length)];
-        if (word.includes(target_characters[0]) || word.includes(target_characters[1]) || word.includes(target_characters[2]) || word.includes(target_characters[3]) || word.includes(target_characters[4]))
-        {
-            word_list = word_list + word + " ";
-            word_count++
-        }
-    }    
-    setText();
-}
-*/
 async function loadWords(words)
 {
     t100_txt = await readFile("textFiles/t100common.txt"); 
@@ -577,6 +511,104 @@ function loadQuote()
         .then(response => response.text())
         .then(text => setQuote(text));
 }
+async function loadWiki()
+{
+    var wordsArray;
+    var text
+    var reset = false;
+    wordCount = 0;
+    var text = await callWiki();
+    //alert(text + 11);
+    //word_list = "safdsfasdfasd"
+    //setText();
+    
+    while (wordCount < 40)
+    {
+        text = await callWiki();
+        text = text.replace(/\r?\n|\r/, " ")
+        //alert(text);
+        wordCount = text.split(" ").length;
+        //alert(wordCount);
+    }
+    wordsArray = text.split(" ");
+    word_list = wordsArray[0];
+    for(var i = 1; i < 40; i++)
+    {
+        word_list = word_list + " " + wordsArray[i];
+    }
+    //alert(word_list);
+    setText();
+    
+
+
+    /*
+    var temp = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[];',./`~!@#$%^&*()_+{}|:<>\"\\".split("");
+    var myset = new Set()
+    temp.forEach(function(ch)
+    {
+        myset.add(ch);
+    })
+    wordsArray = text.split(" ");
+    //alert(wordsArray[1]);
+    //alert(myset.has(""));
+    var j = 0;
+    while(!reset && j < wordsArray.length)
+    {    
+        //alert("loop");
+        var word = wordsArray[j];   
+        for(var i = 0; i < word.length; i++)
+        {
+            if(!myset.has(word.substring(i, i+1)))
+            {
+                alert(word.substring(i, i+1));
+                alert("error");
+                i = wordLength; 
+                reset = true;
+            }
+        }
+        j++ 
+    }
+    */
+   
+    
+
+    //alert(myset.has(" "));
+    //alert(text);
+    
+}
+async function callWiki()
+{
+    var data = "hello";
+    await fetch('https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&prop=&list=random&meta=&titles=&formatversion=2&rnnamespace=0&rnfilterredir=nonredirects&rnlimit=1')
+
+    .then(response => {
+        return response.json();
+    })
+    .then(result => {
+        results = result.query.random;
+        title = results[0].title;
+
+        title = title.split(" ").join("_");
+        //alert (title);
+    })
+    .then(async a => {
+        await fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json&prop=extracts&titles="+title+"&formatversion=2&exsentences=10&exlimit=1&explaintext=1")
+        .then(idresult => {
+            return idresult.json();
+        })
+        .then(idresult =>{
+            data = idresult.query.pages[0].extract;
+            //alert(data);
+            
+        })
+    //alert(data);
+    });
+    return data;
+}
+    
+
+
+
 function chooseWords(words)
 {
     total_word_length = words;
@@ -608,6 +640,7 @@ function chooseWords(words)
 
 function setText()
 {   
+    //alert(word_list);
     for (let i = 0; i < word_list.length; i++)
     {
         createCursors();

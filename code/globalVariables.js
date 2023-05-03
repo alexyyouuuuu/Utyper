@@ -12,12 +12,15 @@ var text_color_divs = [];
 var prompt_div; 
 var button;
 var next_button;
+var normal_mode;
+var wiki_mode;
 var button_40;
 var button_20;
 var button_10;
 var button_quote;
 var wpm_div;
 var accuracy_div;
+var randomWiki = false;
 
 //settings divs
 var theme_heading;
