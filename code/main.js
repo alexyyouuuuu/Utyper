@@ -318,9 +318,10 @@ function checkWords()
 
     element.appendChild(document.createTextNode("Accuracy: "+[percent_characters_correct]+"%\n"));
     document.getElementById('prompt').appendChild(element);
-
-    
-    var average_word_length = (word_list.length-total_word_length)/(1.0*total_word_length);
+    var total_words;
+    if(randomWiki){total_words = 40;}
+    else{total_words = total_word_length}
+    var average_word_length = (word_list.length-total_words)/(1.0*total_words);
     average_word_length = Math.round(average_word_length * 100) / 100
     element.appendChild(document.createTextNode("Average Word Length: "+average_word_length+"\n"));
     document.getElementById('prompt').appendChild(element);

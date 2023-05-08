@@ -515,9 +515,8 @@ async function loadWiki()
 {
     var wordsArray;
     var text
-    var reset = false;
     wordCount = 0;
-    var text = await callWiki();
+    //var text = await callWiki();
     //alert(text + 11);
     //word_list = "safdsfasdfasd"
     //setText();
@@ -525,7 +524,8 @@ async function loadWiki()
     while (wordCount < 40)
     {
         text = await callWiki();
-        text = text.replace(/\r?\n|\r/, " ")
+        text = text.replaceAll("\n","")
+        
         //alert(text);
         wordCount = text.split(" ").length;
         //alert(wordCount);
@@ -536,7 +536,10 @@ async function loadWiki()
     {
         word_list = word_list + " " + wordsArray[i];
     }
-    //alert(word_list);
+    word_list = word_list.replaceAll("  ", " ")
+    word_list = word_list.replaceAll("==", "")
+    word_list = word_list.replace(/\t/g, ' ');
+    ///alert(word_list);
     setText();
     
 
@@ -643,6 +646,10 @@ function setText()
     //alert(word_list);
     for (let i = 0; i < word_list.length; i++)
     {
+        if(word_list.substring(i, i+1) == "")
+        {
+            alert("0 length char");
+        }
         createCursors();
         createDiv(word_list.substring(i, i+1));
     } 
@@ -716,12 +723,15 @@ function createDiv(character)
     element.style.fontSize = "40px";
     element.style.height = "40px";
     element.style.fontFamily = "Roboto Mono, monospace";
+    element.style.verticalAlign = "top";
     //element.style.border = "1px solid white";
     
     if(character === " ")
     {
         element.style.width = "22px";
     }
+    //alert(element.offsetWidth);
+    
     character_element_array.push(element);
     document.getElementById('prompt').appendChild(element);
 }
