@@ -54,6 +54,10 @@ var character_element_array = [];
 var cursor_element_array = [];
 var first_try = [];
 var first_try_correct = [];
+var word_end_index_array = [];
+var word_end_index_array_index = 0;
+var section_times_array = [];
+var total_section_times_array = [];
 
 //booleans
 var focused_on_input = false;
@@ -67,6 +71,7 @@ var typing_end_time;
 var timer_interval;
 var time_taken;
 var seconds = 0;
+var section_start;
 
 //text
 var total_word_length = 20;
@@ -77,6 +82,7 @@ var characters_correct_first_try = 0;
 var t100_txt = "";
 var superCommon_txt = "";
 var common_txt = "";
+
 
 //blinking
 var blinker_interval;

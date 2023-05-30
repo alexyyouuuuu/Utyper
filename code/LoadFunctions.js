@@ -646,10 +646,6 @@ function setText()
     //alert(word_list);
     for (let i = 0; i < word_list.length; i++)
     {
-        if(word_list.substring(i, i+1) == "")
-        {
-            alert("0 length char");
-        }
         createCursors();
         createDiv(word_list.substring(i, i+1));
     } 
@@ -660,6 +656,7 @@ function setText()
     }
     var spaces = [];
     spaces.push(-1);
+    //alert(word_list.length-spaces[0]-1);
     for(let i = 0; word_list.length-spaces[i]-1 > 62; i++)
     {
         var new_space = checkSpace(spaces[i]+63);
@@ -668,17 +665,18 @@ function setText()
         character_element_array[new_space].style.width = new_width;
     }
     var total_width = 0;
-    for(let i = 0; i<space_last; i++)
+    var temp_space_array = word_list.split(" ");
+    var totalIndex = 0;
+    for (var i = 0; i < temp_space_array.length; i++)
     {
-        var element = cursor_element_array[i];
-        var width = element.clientWidth;
-        total_width +=width;
-        element = character_element_array[i];
-        width = element.clientWidth;
-        total_width +=width;
+        totalIndex = totalIndex + temp_space_array[i].length;
+        word_end_index_array.push(totalIndex);
+        totalIndex++
     }
-    //alert(total_width)
+    
     blinker_interval = setInterval(blink, 500);
+    
+    
 }
 function setQuote(text)
 {
