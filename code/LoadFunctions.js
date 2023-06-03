@@ -43,6 +43,18 @@ livePercent = map.get("percent");
 trueTyping = map.get("truetyping");
 noError = map.get("error");
 noBackspace = map.get("backspace");
+if(map.has("userName"))
+{
+    userName = map.get("userName");
+}
+else{
+    userName = "";
+}
+if(userName.length > 10)
+{
+    userName = userName.substring(0,10);
+}
+userName = userName.replace("%20", " ");
 
 //alert(current_theme+livePercent+liveWPM+trueTyping+noError+noBackspace)
 if(liveWPM === "true"){liveWPM = true}
@@ -132,6 +144,10 @@ function loadAll()
     text_color_divs = [];
     alt_text_color_divs = [];
     var page = document.location.href;
+    background_color_divs.push(document.getElementById("body"));
+    document.getElementById("user").innerHTML = userName;
+    text_color_divs.push(document.getElementById("user"));
+    title_color_divs.push(document.getElementById("title"));
     //alert(page);
     if(page.includes("settings"))
     {
@@ -142,9 +158,7 @@ function loadAll()
         {
             newSettings(page);
         }
-        background_color_divs.push(document.getElementById("body"));
-
-        save_button = document.getElementById("saveButton");
+                save_button = document.getElementById("saveButton");
         default_button = document.getElementById("default");
         default_button.addEventListener("click", function(){setDefaultSettings()});
         account_default_button = document.getElementById("accountDefault");
@@ -157,8 +171,6 @@ function loadAll()
         title_color_divs.push(account_default_button);
 
         
-        
-
         text_color_divs.push(document.getElementById("theme"));
         text_color_divs.push(document.getElementById("display"));
         text_color_divs.push(document.getElementById("testSettings"));
@@ -172,7 +184,6 @@ function loadAll()
         alt_text_color_divs.push(document.getElementById("noBackspaceDiv"));
         alt_text_color_divs.push(document.getElementById("trueTypingDiv"));
         alt_text_color_divs.push(document.getElementById("trueTypingButton"));
-        title_color_divs.push(document.getElementById("title"));
         title_color_divs.push(document.getElementById("pageTitle"));
         
         //lightbg_color_divs.push(document.getElementById("modes"));
@@ -234,9 +245,7 @@ function loadAll()
         button_quote = document.getElementById("quote");
         wpm_div=document.getElementById("wpm");
         accuracy_div=document.getElementById("accuracy");
-
-        background_color_divs.push(document.getElementById("body"));
-        background_color_divs.push(document.getElementById("prompt"));        
+        background_color_divs.push(document.getElementById("prompt"));      
         text_color_divs.push(document.getElementById("words"));
         text_color_divs.push(document.getElementById("10"));
         text_color_divs.push(document.getElementById("20"));
@@ -244,7 +253,6 @@ function loadAll()
         text_color_divs.push(document.getElementById("timer"));
         text_color_divs.push(document.getElementById("wpm"));
         text_color_divs.push(document.getElementById("accuracy"));
-        title_color_divs.push(document.getElementById("title"));
         title_color_divs.push(document.getElementById("next"));
         lightbg_color_divs.push(document.getElementById("modes"));
         
@@ -277,7 +285,6 @@ function loadAll()
         button_quote = document.getElementById("quote");
         wpm_div=document.getElementById("wpm");
         accuracy_div=document.getElementById("accuracy");
-        background_color_divs.push(document.getElementById("body"));
         background_color_divs.push(document.getElementById("prompt"));        
         text_color_divs.push(document.getElementById("words"));
         text_color_divs.push(document.getElementById("10"));
@@ -286,7 +293,6 @@ function loadAll()
         text_color_divs.push(document.getElementById("timer"));
         text_color_divs.push(document.getElementById("wpm"));
         text_color_divs.push(document.getElementById("accuracy"));
-        title_color_divs.push(document.getElementById("title"));
         title_color_divs.push(document.getElementById("next"));
         title_color_divs.push(document.getElementById("targets"));
         lightbg_color_divs.push(document.getElementById("modes"));
@@ -316,9 +322,7 @@ function loadAll()
         target3 = document.getElementById("target3");
         target4 = document.getElementById("target4");
         target5 = document.getElementById("target5");
-        title_color_divs.push(document.getElementById("title"));
         title_color_divs.push(document.getElementById("instructions"));
-        background_color_divs.push(document.getElementById("body"));
         lightbg_color_divs.push(document.getElementById("target1"));
         lightbg_color_divs.push(document.getElementById("target2"));
         lightbg_color_divs.push(document.getElementById("target3"));
@@ -340,7 +344,6 @@ function loadAll()
     else if(page.includes("signup"))
     {
         //alert("signup");
-        background_color_divs.push(document.getElementById("body"));
         lightbg_color_divs.push(document.getElementById("formContainer"));
         title_color_divs.push(document.getElementById("title"));
         text_color_divs.push(document.getElementById("errors"));
@@ -365,9 +368,7 @@ function loadAll()
     else if(page.includes("login"))
     {
         //alert("login");
-        background_color_divs.push(document.getElementById("body"));
         lightbg_color_divs.push(document.getElementById("formContainer"));
-        title_color_divs.push(document.getElementById("title"));
         text_color_divs.push(document.getElementById("errors"));
         alt_text_color_divs.push(document.getElementById("login"));
         var inputs = document.getElementsByTagName("input");
@@ -385,6 +386,14 @@ function loadAll()
 
         checkLoginError(page);
     }
+    else if(page.includes("profile"))
+    {
+       document.getElementById("welcome").innerHTML = "Welcome " + userName;
+       title_color_divs.push(document.getElementById("welcome"));
+       text_color_divs.push(document.getElementById("signout"));
+       document.getElementById("signout").style.border = "3px solid " + text_color;
+       document.getElementById("signout").addEventListener("click", function(){signOut()});
+    }
     else{
         //alert("index")
         prompt_div = document.getElementById("prompt");
@@ -401,7 +410,6 @@ function loadAll()
         accuracy_div=document.getElementById("accuracy");
 
         current_page = "index";
-        background_color_divs.push(document.getElementById("body"));
         background_color_divs.push(document.getElementById("prompt"));        
         text_color_divs.push(document.getElementById("mode"));
         text_color_divs.push(document.getElementById("normalMode"));
@@ -414,7 +422,6 @@ function loadAll()
         text_color_divs.push(document.getElementById("timer"));
         text_color_divs.push(document.getElementById("wpm"));
         text_color_divs.push(document.getElementById("accuracy"));
-        title_color_divs.push(document.getElementById("title"));
         title_color_divs.push(document.getElementById("next"));
         lightbg_color_divs.push(document.getElementById("modes"));
         
@@ -516,19 +523,12 @@ async function loadWiki()
     var wordsArray;
     var text
     wordCount = 0;
-    //var text = await callWiki();
-    //alert(text + 11);
-    //word_list = "safdsfasdfasd"
-    //setText();
-    
     while (wordCount < 40)
     {
         text = await callWiki();
         text = text.replaceAll("\n","")
         
-        //alert(text);
         wordCount = text.split(" ").length;
-        //alert(wordCount);
     }
     wordsArray = text.split(" ");
     word_list = wordsArray[0];
@@ -539,45 +539,7 @@ async function loadWiki()
     word_list = word_list.replaceAll("  ", " ")
     word_list = word_list.replaceAll("==", "")
     word_list = word_list.replace(/\t/g, ' ');
-    ///alert(word_list);
     setText();
-    
-
-
-    /*
-    var temp = "abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=[];',./`~!@#$%^&*()_+{}|:<>\"\\".split("");
-    var myset = new Set()
-    temp.forEach(function(ch)
-    {
-        myset.add(ch);
-    })
-    wordsArray = text.split(" ");
-    //alert(wordsArray[1]);
-    //alert(myset.has(""));
-    var j = 0;
-    while(!reset && j < wordsArray.length)
-    {    
-        //alert("loop");
-        var word = wordsArray[j];   
-        for(var i = 0; i < word.length; i++)
-        {
-            if(!myset.has(word.substring(i, i+1)))
-            {
-                alert(word.substring(i, i+1));
-                alert("error");
-                i = wordLength; 
-                reset = true;
-            }
-        }
-        j++ 
-    }
-    */
-   
-    
-
-    //alert(myset.has(" "));
-    //alert(text);
-    
 }
 async function callWiki()
 {

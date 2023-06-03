@@ -14,6 +14,7 @@ function next()
     first_try = [];
     word_end_index_array = [];
     section_times_array = [];
+    total_section_times_array = [];
     word_end_index_array_index = 0;
     characters_correct_first_try = 0;
     seconds = 0;
@@ -398,7 +399,7 @@ function createGraph()
    
     if(randomWiki || total_word_length === 40)
     {
-        alert("40 words")
+        //alert("40 words")
         for(var i = 0; i < 10; i++)
         {
             var time = section_times_array[4*i] + section_times_array[4*i+1] + section_times_array[4*i+2] + section_times_array[4*i+3];
@@ -415,7 +416,7 @@ function createGraph()
     }
     else if(total_word_length === 20)
     {
-        alert("20 words")
+        //alert("20 words")
         for(var i = 0; i < 10; i++)
         {
             var time = section_times_array[2*i] + section_times_array[2*i+1];
@@ -432,7 +433,7 @@ function createGraph()
     }
     else if(total_word_length === 10)
     {
-        alert("10 words")
+        //alert("10 words")
         for(var i = 0; i < 10; i++)
         {
             var time = section_times_array[i];
@@ -448,7 +449,7 @@ function createGraph()
     }
     else if(quotes)
     {
-        alert("quotes graph")
+        //alert("quotes graph")
         var length = section_times_array.length;
         if(length > 60)
         {
@@ -675,9 +676,6 @@ function createGraph()
         ctx.fillStyle = text_color
         ctx.lineWidth = 0;
         ctx.fillRect(xCord, yCord, 20, boxHeight);
-        //ctx.font = "20px monospace"
-        //ctx.fillText(sectionWPMArray[i], xCord, 340)
-
     }  
     for(var i = 0; i < totalWPMbySection.length - 1; i++)
     {
@@ -688,7 +686,6 @@ function createGraph()
         var boxHeight2 = totalWPMbySection[i+1] / graphMaxWPM * 300.0;
         var x2Cord = 380 + 20 * (i+1) + 50 * (i+1);
         var y2Cord = 310 - boxHeight2 - 2;
-        //alert("filling rect")
         ctx.lineWidth = 0;
         ctx.beginPath()
         ctx.arc(x1Cord+10, y1Cord, 4, 0, 2 * Math.PI, false)
@@ -696,14 +693,12 @@ function createGraph()
         ctx.fillStyle = title_color;
         ctx.fill()
 
-        
         ctx.beginPath();
         ctx.moveTo(x1Cord+10, y1Cord);
         ctx.lineTo(x2Cord+10, y2Cord);
         ctx.strokeStyle = title_color
         ctx.lineWidth = 2
         ctx.stroke()
-        
     } 
     var boxHeight = totalWPMbySection[totalWPMbySection.length-1] / graphMaxWPM * 300.0;
     var xCord = 380 + 20 * i + 50 * i;
@@ -713,12 +708,5 @@ function createGraph()
     ctx.arc(xCord+10, yCord, 4, 0, 2 * Math.PI, false)
     ctx.fillStyle = title_color;
     ctx.fill()
-        
-        
-    
-  
-    
-    
-    
 }
 
