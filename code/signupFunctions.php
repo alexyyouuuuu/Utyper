@@ -106,9 +106,7 @@ function createUser($conn, $name, $email, $username, $password)
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt); 
     header("location: ../signup.php?error=success");     
-    exit();
-  
-    
+    exit();    
 }
 
 

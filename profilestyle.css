@@ -1,0 +1,14 @@
+.welcome{
+    font-size: 40px;
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 50px;
+}
+.signout{
+    width: 180px;
+    font-size: 30px;
+    font-family: 'Roboto Mono', monospace;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}

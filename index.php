@@ -1,6 +1,7 @@
 <?php
     include "header.php";
 ?>
+
 <link rel="stylesheet" href="style.css">
         <div class = "testParent" id="modes">
             <p class = "child_mode" id = "mode">mode: </p>

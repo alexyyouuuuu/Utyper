@@ -24,5 +24,10 @@ function checkLoginError(page)
     if(page.includes("error"))
         {errorDiv.innerHTML = "Invalid username/email or password";}
 }
-
+function signOut()
+{
+    document.cookie = "userId=false; expires=Thu, 18 Dec 2013 12:00:00 UTC;"
+    document.cookie = "userName=false; expires=Thu, 18 Dec 2013 12:00:00 UTC;"
+    window.location.href="index.php";
+}
 

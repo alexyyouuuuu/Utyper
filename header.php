@@ -23,8 +23,13 @@
             <a href="target.php">
                 <img class="targetIcon" id="targetIcon" src="images/arrow-white.png">
             </a>
-            <a href="signup.php">
-                <img class="accountIcon" id="accountIcon" src="images/account-white.png">
-            </a>
+            <div  class = user>
+                <div class="userDisplayName" id = "user"></div>
+                <a href="accountHandler.php">
+                    <img class="accountIcon" id="accountIcon" src="images/account-white.png">
+                </a>
+                
+            </div>
             
         </header>
+        <link rel="stylesheet" href="headerstyle.css">
